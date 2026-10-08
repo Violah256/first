@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,7 +18,11 @@ class HomeController extends Controller
     {
         return view('contact');      
     }
-
+    public function contactList()
+    {
+        $contacts = Contact::all();
+        return view('contact-list', compact('contacts'));      
+    }
 
     /**
      * Show the form for creating a new resource.
